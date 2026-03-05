@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FAF9F8" />
+  <title>Blossom Boho | Бутик бохо-шик цветов</title>
+  <meta name="description" content="Вневременные букеты со свободной богемной душой. Авторские бохо-шик флористические композиции для любого случая." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAF9F8;
+      --fg: #2D2D2D;
+      --card: #FFFFFF;
+      --secondary: #F8F8F8;
+      --muted: #F0F0F0;
+      --muted-fg: #6B6B6B;
+      --border: #E5E5E5;
+      --pink: #F8C8DC;
+      --pink-dark: #E8A8BC;
+      --pink-light: #FFD1DC;
+      --charcoal: #2D2D2D;
+      --line: #E5E5E5;
+      --radius: 1rem;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+
+    img { display: block; max-width: 100%; height: auto; }
+
+    a { text-decoration: none; color: inherit; }
+
+  
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-on-scroll { opacity: 0; }
+    .animate-on-scroll.visible { animation: fade-in-up .7s ease-out forwards; }
+
+    .envelope-frame { position: relative; }
+    .envelope-frame svg.envelope-lines {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 2;
+    }
+    .envelope-frame svg.envelope-lines line {
+      stroke: var(--line); stroke-width: 0.3;
+    }
+    @media (min-width: 768px) {
+      .envelope-frame svg.envelope-lines line { stroke-width: 0.4; }
+    }
+
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      border-bottom: 1px solid var(--border);
+      background: rgba(248,248,248,.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      max-width: 80rem; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+    .logo { font-size: 1.5rem; letter-spacing: .04em; color: var(--pink-dark); }
+    .nav-desktop { display: none; gap: 2rem; align-items: center; }
+    .nav-desktop a {
+      font-size: .875rem; font-weight: 500; color: var(--pink-dark);
+      transition: color .3s;
+    }
+    .nav-desktop a:hover { color: var(--fg); text-decoration: underline; text-underline-offset: 4px; }
+    @media (min-width: 768px) { .nav-desktop { display: flex; } }
+
+    .hamburger {
+      display: flex; align-items: center; justify-content: center;
+      background: none; border: none; cursor: pointer;
+      width: 2.5rem; height: 2.5rem; color: var(--fg);
+    }
+    @media (min-width: 768px) { .hamburger { display: none; } }
+
+    .mobile-nav {
+      display: none; flex-direction: column; gap: 1rem;
+      border-top: 1px solid var(--border);
+      background: var(--secondary);
+      padding: 1rem 1.5rem;
+    }
+    .mobile-nav.open { display: flex; }
+    @media (min-width: 768px) { .mobile-nav { display: none !important; } }
+    .mobile-nav a {
+      font-size: .875rem; font-weight: 500; color: var(--pink-dark);
+      transition: color .3s;
+    }
+    .mobile-nav a:hover { color: var(--fg); }
+
+
+    .hero {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; min-height: 100dvh;
+      overflow: hidden; padding: 5rem 1.5rem 3rem;
+    }
+    .hero-content { position: relative; z-index: 5; text-align: center; }
+    .hero h1 { font-size: clamp(3.5rem, 10vw, 8rem); line-height: 1.05; letter-spacing: -.02em; }
+    .hero .subtitle { font-size: clamp(1.125rem, 2.5vw, 1.75rem); color: var(--muted-fg); margin-top: .75rem; }
+    .hero .desc { max-width: 28rem; margin: 1rem auto 0; font-size: .875rem; color: var(--muted-fg); line-height: 1.6; }
+    .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2.5rem; }
+    .btn-primary, .btn-secondary {
+      display: inline-block; padding: .875rem 2rem; border-radius: var(--radius);
+      font-size: .875rem; font-weight: 500; cursor: pointer;
+      transition: transform .3s, box-shadow .3s, background .3s, border-color .3s;
+    }
+    .btn-primary {
+      background: var(--pink); color: var(--charcoal); border: 1px solid var(--pink);
+    }
+    .btn-primary:hover {
+      transform: scale(1.03); background: var(--pink-dark);
+      box-shadow: 0 10px 25px rgba(248,200,220,.3);
+    }
+    .btn-secondary {
+      background: var(--card); color: var(--fg); border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      transform: scale(1.03); border-color: var(--pink);
+      box-shadow: 0 10px 25px rgba(248,200,220,.2);
+    }
+
+    .hero-float {
+      position: absolute; pointer-events: none; border-radius: 50%;
+      overflow: hidden; opacity: .2; filter: blur(2px);
+    }
+    .hero-float img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-float-1 { right: -5rem; bottom: -5rem; width: 18rem; height: 18rem; }
+    .hero-float-2 { left: -5rem; top: -2.5rem; width: 14rem; height: 14rem; opacity: .15; }
+    @media (min-width: 768px) {
+      .hero-float { opacity: .25; filter: none; }
+      .hero-float-1 { width: 24rem; height: 24rem; }
+      .hero-float-2 { width: 20rem; height: 20rem; opacity: .2; }
+    }
+
+    
+    .section { padding: 6rem 1.5rem; }
+    @media (min-width: 768px) { .section { padding: 8rem 1.5rem; } }
+    .section-inner { max-width: 72rem; margin: 0 auto; }
+    .section-label {
+      font-size: .75rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .2em;
+      color: var(--pink-dark);
+    }
+    .section-title { margin-top: 1rem; font-size: clamp(1.75rem, 4vw, 3rem); line-height: 1.2; }
+    .section-bg { background: var(--card); }
+
+    .story-grid {
+      display: grid; gap: 3rem; align-items: center;
+    }
+    @media (min-width: 768px) { .story-grid { grid-template-columns: 1fr 1fr; } }
+    .story-text { display: flex; flex-direction: column; gap: 1.5rem; }
+    .story-text p { font-size: .875rem; line-height: 1.7; color: var(--muted-fg); }
+    @media (min-width: 768px) { .story-text p { font-size: 1rem; } }
+
+    .story-video {
+      aspect-ratio: 4/3; border-radius: var(--radius);
+      border: 1px solid var(--border); overflow: hidden;
+      background: var(--muted); cursor: pointer;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .story-video:hover {
+      border-color: var(--pink);
+      box-shadow: 0 10px 30px rgba(248,200,220,.2);
+    }
+    .story-video img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .story-video:hover img { transform: scale(1.05); }
+    .play-btn {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .play-circle {
+      width: 4rem; height: 4rem; border-radius: 50%;
+      background: rgba(248,200,220,.9); color: var(--charcoal);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,.1);
+      transition: transform .3s, background .3s;
+    }
+    .story-video:hover .play-circle { transform: scale(1.1); background: rgba(232,168,188,.9); }
+    @media (min-width: 768px) { .play-circle { width: 5rem; height: 5rem; } }
+
+ 
+    .trends-grid { display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .trends-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .trend-card { display: flex; flex-direction: column; gap: 1rem; transition: transform .3s; cursor: pointer; }
+    .trend-card:hover { transform: scale(1.03); }
+    .trend-img {
+      aspect-ratio: 3/4; border-radius: var(--radius);
+      border: 1px solid var(--border); overflow: hidden;
+      background: var(--muted);
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .trend-card:hover .trend-img {
+      border-color: var(--pink);
+      box-shadow: 0 10px 30px rgba(248,200,220,.2);
+    }
+    .trend-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .trend-card:hover .trend-img img { transform: scale(1.05); }
+    .trend-card h3 { font-size: 1.25rem; }
+    .trend-card p { font-size: .875rem; color: var(--muted-fg); line-height: 1.6; }
+
+    .vintage-feature {
+      margin-top: 4rem; aspect-ratio: 16/7;
+      border-radius: var(--radius); border: 1px solid var(--border);
+      overflow: hidden; background: var(--muted);
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .vintage-feature:hover {
+      border-color: var(--pink);
+      box-shadow: 0 10px 30px rgba(248,200,220,.2);
+    }
+    .vintage-feature img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .vintage-feature:hover img { transform: scale(1.05); }
+    .vintage-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: flex-end;
+      background: linear-gradient(to top, rgba(45,45,45,.4), transparent);
+      padding: 2rem;
+    }
+    .vintage-overlay h3 { font-size: clamp(1.5rem, 3vw, 1.875rem); color: var(--card); }
+    .vintage-overlay p { margin-top: .5rem; max-width: 28rem; font-size: .875rem; color: rgba(255,255,255,.8); }
+
+
+    .acc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    @media (min-width: 640px) { .acc-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .acc-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .acc-card { display: flex; flex-direction: column; gap: .75rem; transition: transform .3s; cursor: pointer; }
+    .acc-card:hover { transform: scale(1.03); }
+    .acc-img {
+      aspect-ratio: 1; border-radius: var(--radius);
+      border: 1px solid var(--border); overflow: hidden;
+      background: var(--muted);
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .acc-card:hover .acc-img {
+      border-color: var(--pink);
+      box-shadow: 0 10px 30px rgba(248,200,220,.2);
+    }
+    .acc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .acc-card:hover .acc-img img { transform: scale(1.05); }
+    .acc-card p { text-align: center; font-size: .875rem; font-weight: 500; }
+
+    .stories-list { display: flex; flex-direction: column; gap: 2rem; }
+    .story-item {
+      display: grid; gap: 1.5rem;
+      border-radius: var(--radius); border: 1px solid var(--border);
+      background: var(--bg); padding: 1rem;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    @media (min-width: 768px) {
+      .story-item { grid-template-columns: 1fr 2fr; padding: 1.5rem; }
+    }
+    .story-item:hover {
+      border-color: var(--pink);
+      box-shadow: 0 10px 30px rgba(248,200,220,.2);
+    }
+    .story-item-img {
+      aspect-ratio: 16/9; border-radius: .75rem;
+      overflow: hidden; background: var(--muted);
+    }
+    @media (min-width: 768px) { .story-item-img { aspect-ratio: 4/3; } }
+    .story-item-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .story-item:hover .story-item-img img { transform: scale(1.05); }
+    .story-item .play-circle-sm {
+      width: 3rem; height: 3rem;
+    }
+    @media (min-width: 768px) { .story-item .play-circle-sm { width: 3.5rem; height: 3.5rem; } }
+    .story-item:hover .play-circle-sm { transform: scale(1.1); background: rgba(232,168,188,.9); }
+
+    .story-item blockquote {
+      font-style: italic; font-size: 1.125rem; line-height: 1.6;
+    }
+    @media (min-width: 768px) { .story-item blockquote { font-size: 1.25rem; } }
+    .story-item .author {
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .875rem; font-weight: 500; color: var(--pink-dark);
+      margin-top: .75rem;
+    }
+    .author-dot {
+      display: inline-block; width: .375rem; height: .375rem;
+      border-radius: 50%; background: var(--pink);
+    }
+
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--secondary);
+      padding: 4rem 1.5rem;
+    }
+    .footer-inner { max-width: 72rem; margin: 0 auto; }
+    .footer-grid { display: grid; gap: 2.5rem; }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
+    .footer-contact { display: flex; flex-direction: column; gap: .75rem; font-size: .875rem; color: var(--muted-fg); }
+    .footer-contact .label { font-weight: 500; color: var(--fg); }
+    .footer-center { display: flex; flex-direction: column; align-items: center; gap: .75rem; }
+    .footer-center .footer-logo { font-size: 1.875rem; letter-spacing: .04em; color: var(--pink-dark); }
+    .footer-center .footer-tagline { font-size: .75rem; color: var(--muted-fg); text-align: center; }
+    .footer-links { display: flex; flex-direction: column; gap: .75rem; font-size: .875rem; }
+    @media (min-width: 768px) { .footer-links { align-items: flex-end; } }
+    .footer-links a { color: var(--muted-fg); transition: color .3s; }
+    .footer-links a:hover { color: var(--pink-dark); }
+
+    .footer-bottom {
+      margin-top: 3rem; border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+    }
+    .social-links { display: flex; gap: 1rem; }
+    .social-link {
+      width: 2.5rem; height: 2.5rem; border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted-fg);
+      transition: border-color .3s, color .3s, box-shadow .3s;
+    }
+    .social-link:hover {
+      border-color: var(--pink); color: var(--pink-dark);
+      box-shadow: 0 4px 15px rgba(248,200,220,.2);
+    }
+    .social-link svg { width: 1rem; height: 1rem; }
+    .copyright { font-size: .75rem; color: var(--muted-fg); }
+
+    .text-center { text-align: center; }
+    .mb-16 { margin-bottom: 4rem; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+  </style>
+</head>
+<body>
+
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="#" class="logo font-serif">Blossom Boho</a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="#story">История</a>
+        <a href="#trends">Тренды</a>
+        <a href="#bouquets">Букеты</a>
+        <a href="#accessories">Аксессуары</a>
+        <a href="#stories">Отзывы</a>
+      </nav>
+      <button class="hamburger" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+        <svg id="iconMenu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="iconClose" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#story">История</a>
+      <a href="#trends">Тренды</a>
+      <a href="#bouquets">Букеты</a>
+      <a href="#accessories">Аксессуары</a>
+      <a href="#stories">Отзывы</a>
+    </nav>
+  </header>
+
+
+  <section class="hero envelope-frame">
+    <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" style="opacity:.3">
+      <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/>
+      <line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <div class="hero-content">
+      <h1 class="font-serif">Бохо-шик</h1>
+      <p class="subtitle font-serif">Никогда не выйдет из моды</p>
+      <p class="desc">Вневременные букеты со свободной богемной душой</p>
+      <div class="hero-buttons">
+        <a href="#trends" class="btn-primary">Посмотреть</a>
+        <a href="#story" class="btn-secondary">Записаться на консультацию</a>
+      </div>
+    </div>
+    <div class="hero-float hero-float-1">
+      <img src="images/hero-bouquet.jpg" alt="" />
+    </div>
+    <div class="hero-float hero-float-2">
+      <img src="images/romantic-bouquet.jpg" alt="" />
+    </div>
+  </section>
+
+
+  <section id="story" class="section">
+    <div class="section-inner animate-on-scroll">
+      <div class="story-grid">
+        <div class="story-text">
+          <span class="section-label">Наша история</span>
+          <h2 class="section-title font-serif">Свободная красота в каждом лепестке</h2>
+          <p>Рождённый из любви к дикой природе, Blossom Boho воспевает красоту несовершенства. Наши букеты вдохновлены кочевыми лугами, ветреными садами и беззаботным духом бохо-культуры.</p>
+          <p>Каждая композиция рассказывает историю диких текстур, органических форм и красок, навеянных закатами над бескрайними полями. Мы верим, что цветы должны быть живыми, естественными и глубоко личными.</p>
+        </div>
+        <div class="story-video envelope-frame">
+          <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/>
+            <line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <video src="images/story-flowers.mp4" alt="Богемный флорист создаёт композицию из полевых цветов" />
+          <div class="play-btn">
+            <div class="play-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="trends" class="section section-bg">
+    <div class="section-inner animate-on-scroll">
+      <div class="text-center mb-16">
+        <span class="section-label">Стили букетов</span>
+        <h2 class="section-title font-serif">Тренды, которые мы обожаем</h2>
+      </div>
+      <div class="trends-grid">
+        
+        <div class="trend-card">
+          <div class="trend-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/>
+              <line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <img src="images/romantic-bouquet.jpg" alt="Романтический бохо-букет с нежными пионами и пампасной травой" />
+          </div>
+          <h3 class="font-serif">Романтика</h3>
+          <p>Нежные пастели, пышные пионы, пампасная трава и свободные романтические композиции, шепчущие истории садовой любви.</p>
+        </div>
+       
+        <div class="trend-card">
+          <div class="trend-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/>
+              <line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <img src="images/grunge-bouquet.jpg" alt="Драматичный гранж-букет с тёмными георгинами и чёрными тюльпанами" />
+          </div>
+          <h3 class="font-serif">Гранж</h3>
+          <p>Мрачные тёмные бутоны, чёрные тюльпаны, бордовая драма и дикие текстуры для дерзкой богемной души.</p>
+        </div>
+        
+        <div class="trend-card">
+          <div class="trend-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/>
+              <line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <img src="images/vintage-bouquet.jpg" alt="Винтажная цветочная композиция с антикварными розами в латунной вазе" />
+          </div>
+          <h3 class="font-serif">Винтаж</h3>
+          <p>Приглушённые ностальгические розы, антикварные вазы и очарование старины, словно любовное письмо из другой эпохи.</p>
+        </div>
+      </div>
+
+      
+      <div class="vintage-feature envelope-frame">
+        <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/>
+          <line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <img src="images/vintage-bouquet.jpg" alt="Панорама винтажных цветочных композиций" />
+        <div class="vintage-overlay">
+          <div>
+            <h3 class="font-serif">Винтажная коллекция</h3>
+            <p>Где вечная элегантность встречается с богемной душой. Откройте композиции, привносящие очарование старины в современные пространства.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="accessories" class="section">
+    <div class="section-inner animate-on-scroll">
+      <div class="text-center mb-16">
+        <span class="section-label">Аксессуары</span>
+        <h2 class="section-title font-serif">Завершите образ</h2>
+      </div>
+      <div class="acc-grid">
+        <div class="acc-card">
+          <div class="acc-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/><line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/></svg>
+            <img src="images/acc-ceramic-vase.jpg" alt="Керамическая ваза ручной работы в кремово-розовых тонах" />
+          </div>
+          <p>Керамические вазы</p>
+        </div>
+        <div class="acc-card">
+          <div class="acc-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/><line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/></svg>
+            <img src="images/acc-macrame.jpg" alt="Бохо макраме-кашпо из натурального хлопкового шнура" />
+          </div>
+          <p>Макраме-кашпо</p>
+        </div>
+        <div class="acc-card">
+          <div class="acc-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/><line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/></svg>
+            <img src="images/acc-ribbon.jpg" alt="Рулоны льняных лент розового и шалфейного оттенков" />
+          </div>
+          <p>Льняные ленты</p>
+        </div>
+        <div class="acc-card">
+          <div class="acc-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/><line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/></svg>
+            <img src="images/acc-wreath.jpg" alt="Венок из сухоцветов с пампасной травой и розами" />
+          </div>
+          <p>Сухие венки</p>
+        </div>
+        <div class="acc-card">
+          <div class="acc-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/><line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/></svg>
+            <img src="images/acc-brass-tools.jpg" alt="Элегантные латунные флористические ножницы" />
+          </div>
+          <p>Латунные инструменты</p>
+        </div>
+        <div class="acc-card">
+          <div class="acc-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/><line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/></svg>
+            <img src="images/acc-crystal-vase.jpg" alt="Гранёная хрустальная ваза в мягком свете" />
+          </div>
+          <p>Хрустальные вазы</p>
+        </div>
+        <div class="acc-card">
+          <div class="acc-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/><line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/></svg>
+            <img src="images/acc-bridal.jpg" alt="Нежный свадебный венок из сухоцветов" />
+          </div>
+          <p>Бохо-свадебное</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="stories" class="section section-bg">
+    <div class="section-inner animate-on-scroll">
+      <div class="text-center mb-16">
+        <span class="section-label">Отзывы клиентов</span>
+        <h2 class="section-title font-serif">Истории нашего сообщества</h2>
+      </div>
+      <div class="stories-list">
+      
+        <div class="story-item">
+          <div class="story-item-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/><line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/></svg>
+            <img src="images/customer-1.jpg" alt="Невеста с бохо-букетом из полевых цветов на садовой свадьбе" />
+            <div class="play-btn">
+              <div class="play-circle play-circle-sm">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div>
+            <blockquote class="font-serif">&laquo;Обожаю, каким диким и свободным получился мой букет. Это именно то, о чём я мечтала для своей бохо-свадьбы.&raquo;</blockquote>
+            <div class="author"><span class="author-dot"></span> Ольга М.</div>
+          </div>
+        </div>
+       
+        <div class="story-item">
+          <div class="story-item-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/><line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/></svg>
+            <img src="images/customer-2.jpg" alt="Уютная богемная гостиная с композицией из сухоцветов" />
+            <div class="play-btn">
+              <div class="play-circle play-circle-sm">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div>
+            <blockquote class="font-serif">&laquo;Композиция из сухоцветов превратила мою гостиную в настоящий богемный оазис.&raquo;</blockquote>
+            <div class="author"><span class="author-dot"></span> Екатерина Л.</div>
+          </div>
+        </div>
+        
+        <div class="story-item">
+          <div class="story-item-img envelope-frame">
+            <svg class="envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"/><line x1="100" y1="0" x2="0" y2="100" vector-effect="non-scaling-stroke"/></svg>
+            <img src="images/customer-3.jpg" alt="Бохо-сервировка сад��вой вечеринки с цветочными композициями" />
+            <div class="play-btn">
+              <div class="play-circle play-circle-sm">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <div>
+            <blockquote class="font-serif">&laquo;Центральные композиции на нашей садовой вечеринке были невероятными. Каждый гость хотел узнать, откуда они.&raquo;</blockquote>
+            <div class="author"><span class="author-dot"></span> София Р.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-contact">
+          <p class="label">Свяжитесь с нами</p>
+          <p>+7 (777) 52-52-103</p>
+          <p>ул. Васильковский 52</p>
+          <p>@blossomboho</p>
+        </div>
+        <div class="footer-center">
+          <span class="footer-logo font-serif">Blossom Boho</span>
+          <p class="footer-tagline">Вневременные букеты со свободной богемной душой</p>
+        </div>
+        <div class="footer-links">
+          <a href="#story">История</a>
+          <a href="#trends">Букеты</a>
+          <a href="#accessories">Аксессуары</a>
+          <a href="#trends">Тренды</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </a>
+        </div>
+        <p class="copyright">&copy; 2025 Blossom Boho. Создаём с любовью.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const iconMenu = document.getElementById('iconMenu');
+    const iconClose = document.getElementById('iconClose');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      iconMenu.style.display = isOpen ? 'none' : 'block';
+      iconClose.style.display = isOpen ? 'block' : 'none';
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    });
+
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        iconMenu.style.display = 'block';
+        iconClose.style.display = 'none';
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Открыть меню');
+      });
+    });
+
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
