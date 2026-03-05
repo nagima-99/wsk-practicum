@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERSHOCK | Игровая периферия</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="toast-container" id="toast-container"></div>
+
+       <div class="modal-backdrop" id="video-modal">
+        <div class="video-container">
+             <button class="modal-close close-video">&times;</button>
+             <iframe width="100%" height="100%" src="https://youtu.be/BYNCoiafieY?si=qH2gPilc9P7gKGlT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="product-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="product-modal-close">&times;</button>
+            <div class="modal-content">
+                <div class="modal-gallery">
+                    <img id="modal-img" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="product-price-block">
+                        <span class="current-price" id="modal-price"></span>
+                    </div>
+                    <div class="modal-tabs">
+                        <button class="tab-link active" data-tab="desc">Описание</button>
+                        <button class="tab-link" data-tab="specs">Характеристики</button>
+                    </div>
+                    <div class="tab-content active" id="tab-desc">
+                        <p id="modal-desc"></p>
+                    </div>
+                    <div class="tab-content" id="tab-specs">
+                        <ul class="specs-list" id="modal-specs"></ul>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn-primary add-to-cart-modal" id="modal-add-btn">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Корзина <span id="cart-total-count">(0)</span></h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-body" id="cart-items-wrapper"></div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <span>Итого:</span>
+                <span class="summary-price" id="cart-total-price">0 ₸</span>
+            </div>
+            <button class="btn-primary full-width" id="checkout-btn">Оформить заказ</button>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">CYBER<span class="highlight">SHOCK</span></a>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Главная</a></li>
+                    <li><a href="#trends" class="nav-link">Тренды</a></li>
+                    <li><a href="#partners" class="nav-link">Партнеры</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="icon-btn theme-toggle"><i class="fas fa-moon"></i></button>
+                <div class="cart-btn-wrapper" id="cart-trigger">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </div>
+                <div class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="container hero-wrapper">
+            <div class="hero-text">
+                <h1>ЛУЧШЕЕ ДЛЯ ТВОЕГО СЕТАПА</h1>
+                <p>В нашем магазине ты найдешь всё, чтобы удивить и порадовать себя, независимо от уровня скилла!</p>
+                <button class="btn-primary" id="scroll-to-catalog">В каталог</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=1000&auto=format&fit=crop" alt="Игровой сетап">
+            </div>
+        </div>
+    </section>
+
+    <section id="trends" class="trends-section">
+        <div class="container trends-wrapper">
+            <div class="trends-title-block">
+                <h2>ТРЕНДЫ</h2>
+                <div class="catalog-filters">
+                    <button class="filter-btn active" data-category="all">Все</button>
+                    <button class="filter-btn" data-category="keyboard">Клавиатуры</button>
+                    <button class="filter-btn" data-category="mouse">Мыши</button>
+                    <button class="filter-btn" data-category="headset">Гарнитуры</button>
+                </div>
+            </div>
+            <div class="trends-gallery" id="products-container"></div>
+        </div>
+    </section>
+
+    <section id="partners" class="partners-section">
+        <div class="container">
+            <h2>НАШИ ПАРТНЕРЫ</h2>
+            <div class="partners-list">
+                <span>LOGITECH</span>
+                <span>RAZER</span>
+                <span>HYPERX</span>
+                <span>STEELSERIES</span>
+                <span>CORSAIR</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="announcement-section">
+        <div class="container announcement-wrapper">
+            <div class="anno-text">
+                <h3>АНОНС НОВИНОК</h3>
+                <p>Рады сообщить, что новые потрясающие девайсы уже поступили на склад. Это изменит твое представление о комфорте!</p>
+                <p>Что тебя ждет?</p>
+                <ul>
+                    <li>Скорость: Новые оптические свитчи для мгновенной реакции.</li>
+                    <li>Комфорт: Ультралегкие беспроводные мыши.</li>
+                    <li>Погружение: Пространственное аудио для реалистичного звука.</li>
+                    <li>Стиль: Полностью настраиваемая RGB-подсветка.</li>
+                </ul>
+            </div>
+            <div class="anno-video" id="video-placeholder">
+                <img src="https://i.ytimg.com/vi/BYNCoiafieY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD7kPG3o0ujGT3qy897ikvNjhnA7w" alt="Видео обзор">
+                <div class="play-btn"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts" class="footer">
+        <div class="container footer-wrapper">
+            <div class="footer-col brand-col">
+                <h3>CYBERSHOCK</h3>
+            </div>
+            <div class="footer-col links-col">
+                <a href="#hero">Главная</a>
+                <a href="#trends">Тренды</a>
+                <a href="#partners">Партнеры</a>
+            </div>
+            <div class="footer-col contact-col">
+                <a href="mailto:info@cybershock.com">info@cybershock.com</a>
+                <span>+7 (777) 777-77-77</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
