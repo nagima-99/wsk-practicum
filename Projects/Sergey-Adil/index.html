@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>iStore — полный каталог Apple 2026</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    :root {
+      --bg-primary: #f8f9fa;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --text-primary: #1e1e1e;
+      --text-secondary: #4a4a4a;
+      --border: #e0e0e0;
+      --accent: #0066cc;
+      --accent-hover: #004999;
+      --header-bg: rgba(255, 255, 255, 0.9);
+      --shadow: 0 8px 20px rgba(0,0,0,0.05);
+      --footer-bg: #f1f3f5;
+      --highlight: #ffd60a;
+    }
+
+    body.dark {
+      --bg-primary: #121212;
+      --bg-secondary: #1e1e1e;
+      --bg-card: #2d2d2d;
+      --text-primary: #f0f0f0;
+      --text-secondary: #bbbbbb;
+      --border: #3d3d3d;
+      --accent: #0a84ff;
+      --accent-hover: #409cff;
+      --header-bg: rgba(30, 30, 30, 0.95);
+      --shadow: 0 8px 20px rgba(0,0,0,0.5);
+      --footer-bg: #1a1a1a;
+      --highlight: #ffd60a;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px;
+      width: 100%;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      background-color: var(--header-bg);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #5e5e5e, #a1a1a1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-left: 10px;
+    }
+    .logo i { font-size: 1.8rem; color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--text-primary);
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a.active { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 4px; }
+
+    .user-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .user-actions button {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+    .cart-icon {
+      position: relative;
+    }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+    }
+
+    .profile-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 4px 12px 4px 4px;
+    }
+    .avatar {
+      background: var(--accent);
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+    .username-text {
+      font-weight: 500;
+    }
+    .logout-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+      background: var(--bg-card);
+      padding: 8px 20px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      align-items: center;
+      width: 100%;
+    }
+    .search-bar i {
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+    }
+    .search-bar input {
+      background: transparent;
+      border: none;
+      width: 100%;
+      padding: 10px 0;
+      color: var(--text-primary);
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--bg-secondary);
+      margin: 20px 0;
+      border-radius: 40px;
+      box-shadow: var(--shadow);
+      transition: opacity 0.2s, height 0.2s;
+    }
+    .hero.hidden {
+      display: none;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+    .card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card img {
+      width: 100%;
+      border-radius: 18px;
+      margin-bottom: 15px;
+      object-fit: cover;
+      height: 200px;
+      background: var(--bg-primary);
+    }
+    .card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+    .card .specs {
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .price { font-weight: 700; font-size: 1.3rem; color: var(--accent); margin: 10px 0; }
+    .btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      justify-content: center;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn:hover { background: var(--accent-hover); color: white; }
+    .badge-new {
+      background: #ff3b30;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 8px;
+    }
+
+    /* модальное окно товара — большое, статичное, крестик в углу */
+    .product-modal {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg-secondary);
+      border-radius: 40px;
+      box-shadow: var(--shadow);
+      z-index: 1002;
+      display: none;
+      max-width: 900px;
+      width: 95%;
+      max-height: 90vh;
+      overflow-y: auto; /* если контент не влезает, появляется прокрутка, но мы подберем размеры, чтобы не было */
+      padding: 30px;
+    }
+    .product-modal.show { display: block; }
+    .product-modal::-webkit-scrollbar { width: 8px; }
+    .product-modal::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+    /* крестик статичный в правом верхнем углу */
+    .close-modal-btn {
+      position: sticky;
+      top: 0;
+      float: right;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: var(--shadow);
+      z-index: 10;
+    }
+    .close-modal-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .modal-header {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+    .modal-header img {
+      width: 240px;
+      height: 240px;
+      border-radius: 30px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .modal-header img:hover { transform: scale(1.02); }
+    .modal-title {
+      flex: 1;
+    }
+    .modal-title h2 { font-size: 2rem; margin-bottom: 10px; }
+    .modal-rating { color: var(--highlight); font-size: 1.2rem; }
+
+    .modal-specs {
+      margin: 25px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      background: var(--bg-card);
+      padding: 25px;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+    }
+    .spec-group p { margin: 8px 0; }
+
+    .option-group {
+      margin: 25px 0;
+    }
+    .option-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .option-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 12px 24px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .option-btn.selected {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .option-btn:hover {
+      background: var(--accent-hover);
+      color: white;
+    }
+    #modalPrice {
+      font-size: 2.5rem;
+      margin: 20px 0;
+    }
+
+    /* лайтбокс */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1100;
+    }
+    .lightbox.show { display: flex; }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 20px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 30px; right: 40px;
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+    }
+
+    /* модалки авторизации и заказа */
+    .modal {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg-secondary);
+      padding: 30px;
+      border-radius: 40px;
+      z-index: 1001;
+      display: none;
+      max-width: 400px;
+      width: 90%;
+    }
+    .modal.show { display: block; }
+    .modal input { width: 100%; padding: 12px; margin: 8px 0; border-radius: 30px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary); }
+    .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+    .tab { flex:1; padding: 10px; background: var(--bg-card); border: none; cursor: pointer; border-radius: 30px; }
+
+    .overlay {
+      position: fixed; top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.5); display: none; z-index: 999;
+    }
+    .overlay.show { display: block; }
+
+    /* корзина */
+    .cart-sidebar {
+      position: fixed;
+      top: 0; right: -100%;
+      width: 90%; max-width: 380px;
+      height: 100vh;
+      background: var(--bg-secondary);
+      border-left: 1px solid var(--border);
+      padding: 25px 20px;
+      transition: right 0.3s;
+      z-index: 1000;
+      display: flex; flex-direction: column;
+    }
+    .cart-sidebar.open { right: 0; }
+    .cart-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+    .cart-items { flex: 1; overflow-y: auto; }
+    .cart-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .cart-item img { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; }
+    .cart-item-info { flex:1; }
+    .cart-total { font-weight: bold; margin: 20px 0; }
+
+    .toast {
+      position: fixed; bottom: 30px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent); color: white;
+      padding: 12px 30px; border-radius: 50px;
+      z-index: 1100; display: none;
+    }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .order-history { margin-top: 20px; }
+    .order-card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+    .cancel-order {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+
+    .footer {
+      margin-top: 60px;
+      background: var(--footer-bg);
+      padding: 30px 0;
+      border-radius: 40px 40px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo"><i class="fa-brands fa-apple"></i> iStore</div>
+      <div class="nav-links">
+        <a data-page="home" class="nav-link active">Главная</a>
+        <a data-page="new" class="nav-link">Новинки</a>
+        <a data-page="cart" class="nav-link">Корзина</a>
+        <a data-page="orders" class="nav-link">Мои заказы</a>
+      </div>
+      <div class="user-actions">
+        <div id="userProfileBlock"></div>
+        <button class="cart-icon" id="cartToggleBtn">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="theme-toggle" id="themeToggle"><i class="fa-regular fa-moon"></i> Тема</button>
+      </div>
+    </nav>
+
+    <div class="search-bar">
+      <i class="fa-solid fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Поиск среди iPhone, Mac, iPad...">
+    </div>
+
+    <div class="hero" id="heroBlock">
+      <h1>Вся продукция Apple в одном месте</h1>
+      <p>Официальные цены 2026 • Доставка по всему Казахстану</p>
+    </div>
+
+    <!-- Страницы -->
+    <section id="home-page" class="page active"><div id="homeContent"></div></section>
+    <section id="new-page" class="page"><h2 style="margin:30px 0 20px;">🔥 Новинки Apple 2026</h2><div id="newGrid" class="theme-grid"></div></section>
+    <section id="cart-page" class="page">
+      <h2 style="margin:30px 0 20px;">🛒 Ваша корзина</h2>
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+        <div class="card">
+          <h3>Товары в корзине</h3>
+          <div id="cartPageItems"></div>
+          <div id="cartPageTotal" class="price" style="margin-top:20px;"></div>
+          <button class="btn" style="width:100%;" onclick="openOrderModal()">Оформить заказ</button>
+        </div>
+        <div class="card"><h3>Помощь</h3><p>support@istore.kz</p></div>
+      </div>
+    </section>
+    <section id="orders-page" class="page">
+      <h2 style="margin:30px 0 20px;">📦 Мои заказы</h2>
+      <div id="ordersList" class="order-history"></div>
+    </section>
+
+    <!-- Боковая корзина -->
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header"><h3>Корзина</h3><button id="closeCart"><i class="fa-solid fa-xmark"></i></button></div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-total" id="cartTotal"></div>
+      <button class="btn" style="width:100%;" onclick="openOrderModal()">Оформить заказ</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Модальное окно товара -->
+    <div class="product-modal" id="productModal">
+      <div class="close-modal-btn" id="closeProductModalBtn"><i class="fa-solid fa-xmark"></i></div>
+      <div class="modal-header">
+        <img id="modalImage" src="" alt="" onclick="openLightbox(this.src)">
+        <div class="modal-title">
+          <h2 id="modalTitle"></h2>
+          <div class="modal-rating" id="modalRating">★★★★★ (158 отзывов)</div>
+        </div>
+      </div>
+      <div class="modal-specs" id="modalSpecs"></div>
+      <div class="option-group">
+        <label><i class="fa-regular fa-hard-drive"></i> Память:</label>
+        <div class="option-buttons" id="memoryOptions"></div>
+      </div>
+      <div class="option-group">
+        <label><i class="fa-regular fa-palette"></i> Цвет:</label>
+        <div class="option-buttons" id="colorOptions"></div>
+      </div>
+      <div class="price" id="modalPrice"></div>
+      <button class="btn" id="addToCartFromModal" style="width:100%;"><i class="fa-solid fa-cart-plus"></i> Добавить в корзину</button>
+    </div>
+
+    <!-- Лайтбокс -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <span class="lightbox-close">&times;</span>
+      <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <!-- Модалка авторизации -->
+    <div class="modal" id="authModal">
+      <div class="tabs">
+        <button class="tab active" id="loginTab">Вход</button>
+        <button class="tab" id="registerTab">Регистрация</button>
+      </div>
+      <div id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Логин">
+        <input type="password" id="loginPassword" placeholder="Пароль">
+        <button class="btn" id="loginSubmit">Войти</button>
+      </div>
+      <div id="registerForm" style="display:none;">
+        <input type="text" id="regUsername" placeholder="Логин">
+        <input type="password" id="regPassword" placeholder="Пароль">
+        <button class="btn" id="registerSubmit">Зарегистрироваться</button>
+      </div>
+      <p id="authMessage" style="margin-top:15px;"></p>
+    </div>
+
+    <!-- Модалка оформления заказа (упрощённая) -->
+    <div class="modal" id="orderModal">
+      <h3>Оформление заказа</h3>
+      <input type="text" placeholder="Ваше имя" id="orderName">
+      <input type="text" placeholder="Адрес" id="orderAddress">
+      <input type="text" placeholder="Телефон" id="orderPhone">
+      <p>Сумма: <span id="orderModalTotal">0</span> ₸</p>
+      <button class="btn" id="confirmOrder">Подтвердить</button>
+      <button class="btn-outline" style="margin-top:10px;" onclick="closeModal('orderModal')">Отмена</button>
+    </div>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <footer class="footer"><div class="container">© iStore, 2026</div></footer>
+
+  <script>
+    (function() {
+      // ---------- ПОЛНЫЙ КАТАЛОГ APPLE 2026 ----------
+      const products = [
+        // ---- iPhone 17 Series ----
+        { 
+          name: "iPhone 17 Pro Max", basePrice: 749990, 
+          image: "images/iphone17pm/250915140035204152.png",
+          category: "iphone", new: true,
+          specs: {
+            дисплей: "6.9″ Super Retina XDR (120 Гц)",
+            чип: "A19 Pro (3 нм)",
+            камера: "48 Мп основная + 12 Мп телефото + LiDAR",
+            батарея: "33 ч видео",
+            вес: "221 г",
+            материал: "Титан"
+          },
+          memory: ["256GB", "512GB", "1TB"],
+          memoryPriceDelta: { "256GB": 0, "512GB": 50000, "1TB": 120000 },
+          colors: ["Серебристый титан", "Cosmic Orange", " Deep Blue"],
+          colorImages: {
+            "Серебристый титан": "images/iphone17pm/250915140035204152.png",
+            "Cosmic Orange": "images/iphone17pm/250915140023667226.png",
+            " Deep Blue": "images/iphone17pm/250915140029572558.png"
+          }
+        },
+        { 
+          name: "iPhone 17 Pro", basePrice: 649990, 
+          image: "images/iphone17pm/250915140029572558.png",
+          category: "iphone", new: true,
+          specs: {
+            дисплей: "6.3″ Super Retina XDR (120 Гц)",
+            чип: "A19 Pro",
+            камера: "48 Мп основная + 12 Мп телефото",
+            батарея: "27 ч видео",
+            вес: "199 г",
+            материал: "Титан"
+          },
+          memory: ["256GB", "512GB", "1TB"],
+          memoryPriceDelta: { "256GB": 0, "512GB": 50000, "1TB": 120000 },
+          colors: ["Серебристый титан", "Cosmic Orange", "Deep Blue"],
+          colorImages: {
+            "Deep Blue": "images/iphone17pm/250915140029572558.png",
+            "Cosmic Orange": "images/iphone17pm/250915140023667226.png",
+            "Серебристый титан": "images/iphone17pm/250915140035204152.png"
+          }
+        },
+        { 
+          name: "iPhone 17", basePrice: 549990, 
+          image: "images/iphone17/250915140039737613.png",
+          category: "iphone", new: true,
+          specs: {
+            дисплей: "6.1″ Super Retina XDR",
+            чип: "A18",
+            камера: "48 Мп основная",
+            батарея: "22 ч видео",
+            вес: "171 г",
+            материал: "Алюминий"
+          },
+          memory: ["128GB", "256GB", "512GB"],
+          memoryPriceDelta: { "128GB": 0, "256GB": 20000, "512GB": 50000 },
+          colors: ["зеленый", "Розовый", "Черный", "Синий"],
+          colorImages: {
+            "зеленый": "images/iphone17/250915140039737613.png",
+            "Розовый": "images/iphone17/250915140032801867.png",
+            "Черный": "images/iphone17/250915140041255872.png",
+            "Синий": "images/iphone17/250915140024563527.png"
+          }
+        },
+        // ---- iPhone 16 Series ----
+        { 
+          name: "iPhone Air", basePrice: 599990, 
+          image: "images/iphone16pm/250915140031978418.png",
+          category: "iphone",
+          specs: {
+            дисплей: "6.9″ Super Retina XDR",
+            чип: "A18 Pro",
+            камера: "48 Мп основная + 12 Мп телефото",
+            батарея: "29 ч видео",
+            вес: "227 г",
+            материал: "Титан"
+          },
+          memory: ["256GB", "512GB", "1TB"],
+          memoryPriceDelta: { "256GB": 0, "512GB": 50000, "1TB": 100000 },
+          colors: ["Light Gold", "Sky Blue", "Черный"],
+          colorImages: {
+            "Light Gold": "images/iphone16pm/250915140031978418.png",
+            "Sky Blue": "images/iphone16pm/250915140019411801.png",
+            "Черный": "images/iphone16pm/250915140037040439.png"
+          }
+        },
+        { 
+          name: "iPhone 17e", basePrice: 519990, 
+          image: "images/17e/260303130020287034.png",
+          category: "iphone",
+          specs: {
+            дисплей: "6.3″ Super Retina XDR",
+            чип: "A18 Pro",
+            камера: "48 Мп основная + 12 Мп телефото",
+            батарея: "25 ч видео",
+            вес: "199 г",
+            материал: "Титан"
+          },
+          memory: ["128GB", "256GB", "512GB", "1TB"],
+          memoryPriceDelta: { "128GB": 0, "256GB": 20000, "512GB": 50000, "1TB": 100000 },
+          colors: ["Черный титан", "Белый титан", "Soft Pink"],
+          colorImages: {
+            "Черный титан": "images/17e/260303130020287034.png",
+            "Белый титан": "images/17e/260303130021524612.png",
+            "Soft Pink": "images/17e/260303130021057495.png"
+          }
+        },
+        { 
+          name: "iPhone 15", basePrice: 449990, 
+          image: "images/15/250331120158768126.png",
+          category: "iphone",
+          specs: {
+            дисплей: "6.1″ Super Retina XDR",
+            чип: "A18",
+            камера: "48 Мп основная",
+            батарея: "22 ч видео",
+            вес: "170 г",
+            материал: "Алюминий"
+          },
+          memory: ["128GB", "256GB", "512GB"],
+          memoryPriceDelta: { "128GB": 0, "256GB": 20000, "512GB": 50000 },
+          colors: ["Черный", "Розовый", "Синий",],
+          colorImages: {
+            "Черный": "images/15/250331120158768126.png",
+            "Розовый": "images/15/250331120043926931.png",
+            "Синий": "images/15/250331120239201231.png",
+          }
+        },
+        // ---- MacBook ----
+        { 
+          name: "MacBook Pro 16 M4", basePrice: 1199990, 
+          image: "images/mac/260303130012673107.png",
+          category: "mac",
+          specs: {
+            дисплей: "16″ Liquid Retina XDR",
+            чип: "M4 Max (16‑ядерный)",
+            память: "36 ГБ unified",
+            накопитель: "512 ГБ SSD",
+            вес: "2.14 кг"
+          },
+          memory: ["512GB", "1TB", "2TB"],
+          memoryPriceDelta: { "512GB": 0, "1TB": 80000, "2TB": 180000 },
+          colors: ["Серебристый", "Космический черный"],
+          colorImages: {
+            "Серебристый": "images/mac/260303130012673107.png",
+            "Космический черный": "images/mac/260303130018952585.png"
+          }
+        },
+        { 
+          name: "MacBook Air 15 M3", basePrice: 749990, 
+          image: "images/mac2/260304170024607738.png",
+          category: "mac",
+          specs: {
+            дисплей: "15.3″ Liquid Retina",
+            чип: "M3",
+            память: "8 ГБ unified",
+            накопитель: "256 ГБ SSD",
+            вес: "1.51 кг"
+          },
+          memory: ["256GB", "512GB", "1TB"],
+          memoryPriceDelta: { "256GB": 0, "512GB": 30000, "1TB": 70000 },
+          colors: ["Небесно-голубой", "Черный", "Серебристый"],
+          colorImages: {
+            "Небесно-голубой": "images/mac2/260304170024607738.png",
+            "Черный": "images/mac2/260304170018175483.png",
+            "Серебристый": "images/mac2/260304170016439180.png"
+          }
+        },
+        // ---- iPad ----
+        { 
+          name: "iPad Pro M4 13″", basePrice: 599990, 
+          image: "images/ipad/251016120017722126.png",
+          category: "ipad",
+          specs: {
+            дисплей: "13″ Ultra Retina XDR",
+            чип: "M4",
+            память: "8 ГБ",
+            накопитель: "256 ГБ",
+            вес: "582 г"
+          },
+          memory: ["256GB", "512GB", "1TB", "2TB"],
+          memoryPriceDelta: { "256GB": 0, "512GB": 30000, "1TB": 70000, "2TB": 140000 },
+          colors: ["Серебристый", "Космический черный"],
+          colorImages: {
+            "Серебристый": "images/ipad/251016120017722126.png",
+            "Космический черный": "images/ipad/251016120014076566.png"
+          }
+        },
+        { 
+          name: "iPad Air M3", basePrice: 399990, 
+          image: "images/ipad/250423160050393226.png",
+          category: "ipad",
+          specs: {
+            дисплей: "11″ Liquid Retina",
+            чип: "M3",
+            память: "8 ГБ",
+            накопитель: "128 ГБ",
+            вес: "462 г"
+          },
+          memory: ["128GB", "256GB", "512GB"],
+          memoryPriceDelta: { "128GB": 0, "256GB": 20000, "512GB": 50000 },
+          colors: ["Синий", "Фиолетовый", "Серый"],
+          colorImages: {
+            "Синий": "images/ipad/250423160050393226.png",
+            "Фиолетовый": "images/ipad/250423160107680670.png",
+            "Серый": "images/ipad/250423160027776384.png"
+          }
+        },
+        // ---- Apple Watch ----
+        { 
+          name: "Apple Watch Ultra 2", basePrice: 329990, 
+          image: "images/watch/250915140027424722.png",
+          category: "watch",
+          specs: {
+            дисплей: "49 мм",
+            чип: "S9",
+            память: "32 ГБ",
+            материалы: "Титан",
+            батарея: "36 ч"
+          },
+          memory: ["32GB"],
+          colors: ["Титан"],
+          colorImages: { "Титан": "images/watch/250915140027424722.png" }
+        },
+        { 
+          name: "Apple Watch Series 10", basePrice: 219990, 
+          image: "images/watch/250425160044511840.png",
+          category: "watch", new: true,
+          specs: {
+            дисплей: "45 мм или 41 мм",
+            чип: "S10",
+            память: "32 ГБ",
+            материалы: "Алюминий",
+            батарея: "18 ч"
+          },
+          memory: ["32GB"],
+          colors: ["Синий", "Розовый",],
+          colorImages: {
+            "Синий": "images/watch/250425160117637401.png",
+            "Розовый": "images/watch/250425160044511840.png",          }
+        },
+        // ---- AirPods ----
+        { 
+          name: "AirPods Pro 2", basePrice: 89990, 
+          image: "images/pods/250408160013795010.png",
+          category: "accessories",
+          specs: {
+            чип: "H2",
+            шумоподавление: "Активное",
+            пространственное_аудио: "Да",
+            влагозащита: "IP54"
+          },
+          colors: ["Белый"],
+          colorImages: { "Белый": "images/pods/250408160013795010.png" }
+        },
+        { 
+          name: "AirPods Max", basePrice: 219990, 
+          image: "images/pods/250408160012109080.png",
+          category: "accessories",
+          specs: {
+            чип: "H1",
+            тип: "Накладные",
+            шумоподавление: "Активное",
+            цвет: "Серебристый"
+          },
+          colors: ["Серебристый", "Синий", "Розовый"],
+          colorImages: {
+            "Серебристый": "images/pods/250408160012109080.png",
+            "Синий": "images/pods/250408160009713366.png",
+            "Розовый": "images/pods/250612160029073899.png"
+          }
+        },
+        { 
+          name: "HomePod mini", basePrice: 24990, 
+          image: "images/xreni/250612160015982830.png",
+          category: "accessories",
+          specs: {
+            чип: "S5",
+            звук: "360°",
+            умный_дом: "Thread",
+            цвет: "Космический серый"
+          },
+          colors: ["Фиолетовый",],
+          colorImages: {
+            "Космический серый": "images/xreni/250612160015982830.png",
+                      }
+        }
+      ];
+
+      // ---------- Состояние ----------
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+      let orders = JSON.parse(localStorage.getItem('orders')) || {};
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+
+      // ---------- DOM элементы ----------
+      const cartSidebar = document.getElementById('cartSidebar');
+      const overlay = document.getElementById('overlay');
+      const cartCountSpan = document.getElementById('cartCount');
+      const cartItemsDiv = document.getElementById('cartItems');
+      const cartTotalSpan = document.getElementById('cartTotal');
+      const cartPageItemsDiv = document.getElementById('cartPageItems');
+      const cartPageTotalSpan = document.getElementById('cartPageTotal');
+      const ordersListDiv = document.getElementById('ordersList');
+      const authModal = document.getElementById('authModal');
+      const toast = document.getElementById('toast');
+      const searchInput = document.getElementById('searchInput');
+      const heroBlock = document.getElementById('heroBlock');
+      const homeContent = document.getElementById('homeContent');
+      const newGrid = document.getElementById('newGrid');
+      const themeToggle = document.getElementById('themeToggle');
+
+      // ---------- Тема ----------
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        themeToggle.querySelector('i').classList.remove('fa-moon');
+        themeToggle.querySelector('i').classList.add('fa-sun');
+      }
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const icon = themeToggle.querySelector('i');
+        if (document.body.classList.contains('dark')) {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+
+      // ---------- Навигация ----------
+      const navLinks = document.querySelectorAll('.nav-link');
+      const pages = document.querySelectorAll('.page');
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const pageId = link.dataset.page;
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          pages.forEach(p => p.classList.remove('active'));
+          document.getElementById(`${pageId}-page`).classList.add('active');
+          if (pageId === 'cart') updateCartUI();
+          if (pageId === 'orders') renderOrders();
+        });
+      });
+
+      // ---------- Утилиты ----------
+      function showToast(msg) {
+        toast.innerText = msg;
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 2000);
+      }
+
+      function saveCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+
+      function updateCartUI() {
+        const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+        cartCountSpan.innerText = count;
+        if (cart.length === 0) {
+          cartItemsDiv.innerHTML = '<p>Корзина пуста</p>';
+          if (cartPageItemsDiv) cartPageItemsDiv.innerHTML = '<p>Корзина пуста</p>';
+        } else {
+          let html = '';
+          cart.forEach((item, idx) => {
+            html += `<div class="cart-item">
+              <img src="${item.image}" alt="">
+              <div class="cart-item-info"><div>${item.name}</div><div>${item.price.toLocaleString()}₸ x ${item.quantity}</div></div>
+              <button onclick="removeFromCart(${idx})"><i class="fa-regular fa-trash-can"></i></button>
+            </div>`;
+          });
+          cartItemsDiv.innerHTML = html;
+          if (cartPageItemsDiv) {
+            cartPageItemsDiv.innerHTML = cart.map(i => `<p>${i.name} — ${i.price.toLocaleString()}₸ x ${i.quantity}</p>`).join('');
+          }
+        }
+        const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        cartTotalSpan.innerText = `Всего: ${total.toLocaleString()} ₸`;
+        if (cartPageTotalSpan) cartPageTotalSpan.innerText = `Итого: ${total.toLocaleString()} ₸`;
+        saveCart();
+      }
+      window.removeFromCart = (i) => { cart.splice(i,1); updateCartUI(); };
+
+      function addToCart(product) {
+        const existing = cart.find(item => item.name === product.name && item.memory === product.memory && item.color === product.color);
+        if (existing) existing.quantity++;
+        else cart.push({ ...product, quantity: 1 });
+        updateCartUI();
+        showToast(`${product.name} добавлен в корзину`);
+      }
+
+      // ---------- Рендер карточек (с краткими specs) ----------
+      function renderProductCard(p) {
+        const mem = p.memory ? p.memory[0] : '';
+        const col = p.colors ? p.colors[0] : '';
+        return `<div class="card" data-product='${encodeURIComponent(JSON.stringify(p))}'>
+          ${p.new ? '<span class="badge-new">Новинка</span>' : ''}
+          <img src="${p.image}" alt="${p.name}" loading="lazy">
+          <h3>${p.name}</h3>
+          <div class="specs">
+            <span class="spec-item"><i class="fa-regular fa-hard-drive"></i> ${mem}</span>
+            <span class="spec-item"><i class="fa-regular fa-palette"></i> ${col}</span>
+            <span class="spec-item"><i class="fa-regular fa-microchip"></i> ${p.specs.чип || p.specs.chip || ''}</span>
+          </div>
+          <div class="price">${p.basePrice.toLocaleString()} ₸</div>
+          <button class="btn add-to-cart-quick" data-name="${p.name}" data-price="${p.basePrice}" data-image="${p.image}"><i class="fa-solid fa-cart-plus"></i> В корзину</button>
+        </div>`;
+      }
+
+      // ---------- Поиск и фильтрация ----------
+      function filterProducts() {
+        const term = searchInput.value.toLowerCase();
+        heroBlock.classList.toggle('hidden', term.length > 0);
+        const filtered = products.filter(p => p.name.toLowerCase().includes(term) || 
+          (p.memory && p.memory.some(m => m.toLowerCase().includes(term))));
+
+        // Группировка по категориям
+        let html = '';
+        const categories = [
+          { title: '📱 iPhone', filter: p => p.category === 'iphone' },
+          { title: '💻 Mac', filter: p => p.category === 'mac' },
+          { title: '📟 iPad', filter: p => p.category === 'ipad' },
+          { title: '⌚ Apple Watch', filter: p => p.category === 'watch' },
+          { title: '🎧 Аксессуары', filter: p => p.category === 'accessories' }
+        ];
+        categories.forEach(cat => {
+          const items = filtered.filter(cat.filter);
+          if (items.length) {
+            html += `<h2 style="margin: 40px 0 20px;">${cat.title}</h2><div class="theme-grid">${items.map(renderProductCard).join('')}</div>`;
+          }
+        });
+        homeContent.innerHTML = html || '<p>Ничего не найдено</p>';
+
+        // Новинки
+        const newItems = filtered.filter(p => p.new);
+        newGrid.innerHTML = newItems.length ? newItems.map(renderProductCard).join('') : '<p>Нет новинок</p>';
+
+        attachCardListeners();
+      }
+
+      function attachCardListeners() {
+        document.querySelectorAll('.card').forEach(card => {
+          card.addEventListener('click', (e) => {
+            if (e.target.classList.contains('add-to-cart-quick')) return;
+            const prodData = card.dataset.product;
+            if (prodData) openProductModal(JSON.parse(decodeURIComponent(prodData)));
+          });
+        });
+        document.querySelectorAll('.add-to-cart-quick').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const name = btn.dataset.name;
+            const price = parseInt(btn.dataset.price);
+            const image = btn.dataset.image;
+            addToCart({ name, price, image });
+          });
+        });
+      }
+
+      // ---------- Модальное окно товара ----------
+      let currentProduct = null;
+      let selectedMemory = null;
+      let selectedColor = null;
+
+      window.openProductModal = function(product) {
+        currentProduct = product;
+        selectedMemory = product.memory ? product.memory[0] : null;
+        selectedColor = product.colors ? product.colors[0] : null;
+        document.getElementById('modalImage').src = product.colorImages ? product.colorImages[selectedColor] || product.image : product.image;
+        document.getElementById('modalTitle').innerText = product.name;
+        let specsHtml = '';
+        for (let [key, value] of Object.entries(product.specs)) {
+          specsHtml += `<p><strong>${key}:</strong> ${value}</p>`;
+        }
+        document.getElementById('modalSpecs').innerHTML = specsHtml;
+
+        // память
+        const memDiv = document.getElementById('memoryOptions');
+        if (product.memory) {
+          memDiv.innerHTML = product.memory.map(m => `<span class="option-btn ${m === selectedMemory ? 'selected' : ''}" data-mem="${m}">${m}</span>`).join('');
+        } else memDiv.innerHTML = '<span>Фиксировано</span>';
+
+        // цвет
+        const colDiv = document.getElementById('colorOptions');
+        if (product.colors) {
+          colDiv.innerHTML = product.colors.map(c => `<span class="option-btn ${c === selectedColor ? 'selected' : ''}" data-color="${c}">${c}</span>`).join('');
+        } else colDiv.innerHTML = '<span>Стандартный</span>';
+
+        updateModalPrice();
+        document.getElementById('productModal').classList.add('show');
+        overlay.classList.add('show');
+
+        // обработчики выбора
+        document.querySelectorAll('#memoryOptions .option-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('#memoryOptions .option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedMemory = btn.dataset.mem;
+            updateModalPrice();
+          });
+        });
+        document.querySelectorAll('#colorOptions .option-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('#colorOptions .option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedColor = btn.dataset.color;
+            if (currentProduct.colorImages && currentProduct.colorImages[selectedColor]) {
+              document.getElementById('modalImage').src = currentProduct.colorImages[selectedColor];
+            }
+          });
+        });
+
+        document.getElementById('addToCartFromModal').onclick = () => {
+          const delta = (currentProduct.memoryPriceDelta && selectedMemory) ? (currentProduct.memoryPriceDelta[selectedMemory] || 0) : 0;
+          const finalPrice = currentProduct.basePrice + delta;
+          addToCart({
+            name: `${currentProduct.name} (${selectedMemory || ''} ${selectedColor || ''})`,
+            price: finalPrice,
+            image: document.getElementById('modalImage').src,
+            memory: selectedMemory,
+            color: selectedColor
+          });
+          closeProductModal();
+        };
+      };
+
+      function updateModalPrice() {
+        if (!currentProduct) return;
+        const delta = (currentProduct.memoryPriceDelta && selectedMemory) ? (currentProduct.memoryPriceDelta[selectedMemory] || 0) : 0;
+        const price = currentProduct.basePrice + delta;
+        document.getElementById('modalPrice').innerText = `${price.toLocaleString()} ₸`;
+      }
+
+      window.closeProductModal = function() {
+        document.getElementById('productModal').classList.remove('show');
+        overlay.classList.remove('show');
+      };
+      document.getElementById('closeProductModalBtn').addEventListener('click', closeProductModal);
+
+      // ---------- Лайтбокс ----------
+      window.openLightbox = function(src) {
+        document.getElementById('lightboxImg').src = src;
+        document.getElementById('lightbox').classList.add('show');
+      };
+      window.closeLightbox = function() {
+        document.getElementById('lightbox').classList.remove('show');
+      };
+
+      // ---------- Авторизация ----------
+      function updateUserUI() {
+        const block = document.getElementById('userProfileBlock');
+        if (currentUser) {
+          const firstLetter = currentUser.username.charAt(0).toUpperCase();
+          block.innerHTML = `<div class="profile-menu"><span class="avatar">${firstLetter}</span><span class="username-text">${currentUser.username}</span><button class="logout-btn" id="logoutBtn">Выйти</button></div>`;
+          document.getElementById('logoutBtn').addEventListener('click', () => {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            updateUserUI();
+            location.reload(); // упрощённо
+          });
+        } else {
+          block.innerHTML = '<button id="loginBtn"><i class="fa-regular fa-user"></i></button>';
+          document.getElementById('loginBtn').addEventListener('click', () => {
+            authModal.classList.add('show');
+            overlay.classList.add('show');
+          });
+        }
+      }
+
+      // Обработчики модалки авторизации
+      document.getElementById('loginTab').addEventListener('click', () => {
+        document.getElementById('loginTab').classList.add('active');
+        document.getElementById('registerTab').classList.remove('active');
+        document.getElementById('loginForm').style.display = 'block';
+        document.getElementById('registerForm').style.display = 'none';
+      });
+      document.getElementById('registerTab').addEventListener('click', () => {
+        document.getElementById('registerTab').classList.add('active');
+        document.getElementById('loginTab').classList.remove('active');
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+      });
+
+      document.getElementById('registerSubmit').addEventListener('click', () => {
+        const user = document.getElementById('regUsername').value;
+        const pass = document.getElementById('regPassword').value;
+        if (users.find(u => u.username === user)) {
+          document.getElementById('authMessage').innerText = 'Пользователь уже существует';
+          return;
+        }
+        users.push({ username: user, password: pass });
+        localStorage.setItem('users', JSON.stringify(users));
+        currentUser = { username: user };
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        document.getElementById('authMessage').innerText = 'Регистрация успешна!';
+        updateUserUI();
+        setTimeout(() => { authModal.classList.remove('show'); overlay.classList.remove('show'); }, 1000);
+      });
+      document.getElementById('loginSubmit').addEventListener('click', () => {
+        const user = document.getElementById('loginUsername').value;
+        const pass = document.getElementById('loginPassword').value;
+        const found = users.find(u => u.username === user && u.password === pass);
+        if (found) {
+          currentUser = { username: user };
+          localStorage.setItem('currentUser', JSON.stringify(currentUser));
+          document.getElementById('authMessage').innerText = 'Вход выполнен';
+          updateUserUI();
+          setTimeout(() => { authModal.classList.remove('show'); overlay.classList.remove('show'); }, 800);
+        } else {
+          document.getElementById('authMessage').innerText = 'Неверные данные';
+        }
+      });
+
+      // ---------- Заказы ----------
+      function saveOrder(order) {
+        if (!currentUser) return;
+        const userOrders = orders[currentUser.username] || [];
+        userOrders.push(order);
+        orders[currentUser.username] = userOrders;
+        localStorage.setItem('orders', JSON.stringify(orders));
+      }
+
+      window.cancelOrder = function(index) {
+        if (!currentUser) return;
+        orders[currentUser.username].splice(index, 1);
+        localStorage.setItem('orders', JSON.stringify(orders));
+        renderOrders();
+        showToast('Заказ отменён');
+      };
+
+      function renderOrders() {
+        if (!currentUser) {
+          ordersListDiv.innerHTML = '<p>Войдите, чтобы увидеть заказы</p>';
+          return;
+        }
+        const userOrders = orders[currentUser.username] || [];
+        if (!userOrders.length) {
+          ordersListDiv.innerHTML = '<p>У вас пока нет заказов</p>';
+          return;
+        }
+        ordersListDiv.innerHTML = userOrders.map((order, idx) => `
+          <div class="order-card">
+            <div class="order-header" style="display:flex; justify-content:space-between;">
+              <span>Заказ #${idx+1} от ${new Date(order.date).toLocaleDateString()}</span>
+              <span>Сумма: ${order.total.toLocaleString()} ₸</span>
+            </div>
+            <div class="order-items">
+              ${order.items.map(i => `<p>${i.name} — ${i.price.toLocaleString()}₸ x ${i.quantity}</p>`).join('')}
+            </div>
+            <button class="cancel-order" onclick="cancelOrder(${idx})">Отменить заказ</button>
+          </div>
+        `).join('');
+      }
+
+      // ---------- Оформление заказа (упрощённо) ----------
+      window.openOrderModal = function() {
+        if (!currentUser) {
+          alert('Войдите в систему');
+          authModal.classList.add('show');
+          overlay.classList.add('show');
+          return;
+        }
+        if (cart.length === 0) {
+          alert('Корзина пуста');
+          return;
+        }
+        const total = cart.reduce((acc,i) => acc + i.price * i.quantity, 0);
+        document.getElementById('orderModalTotal').innerText = total.toLocaleString();
+        document.getElementById('orderModal').classList.add('show');
+        overlay.classList.add('show');
+      };
+
+      document.getElementById('confirmOrder').addEventListener('click', () => {
+        if (!currentUser) return;
+        const order = {
+          date: new Date().toISOString(),
+          items: cart.map(i => ({ name: i.name, price: i.price, quantity: i.quantity })),
+          total: cart.reduce((acc,i) => acc + i.price * i.quantity, 0)
+        };
+        saveOrder(order);
+        cart = [];
+        updateCartUI();
+        closeModal('orderModal');
+        alert('Заказ оформлен!');
+        // перейти на страницу заказов
+        document.querySelector('[data-page="orders"]').click();
+        renderOrders();
+      });
+
+      window.closeModal = (id) => {
+        document.getElementById(id).classList.remove('show');
+        overlay.classList.remove('show');
+      };
+
+      // ---------- Корзина сайдбар ----------
+      document.getElementById('cartToggleBtn').addEventListener('click', () => {
+        cartSidebar.classList.add('open');
+        overlay.classList.add('show');
+      });
+      document.getElementById('closeCart').addEventListener('click', () => {
+        cartSidebar.classList.remove('open');
+        overlay.classList.remove('show');
+      });
+      overlay.addEventListener('click', () => {
+        cartSidebar.classList.remove('open');
+        overlay.classList.remove('show');
+        authModal.classList.remove('show');
+        document.getElementById('orderModal').classList.remove('show');
+        closeProductModal();
+      });
+
+      // ---------- Инициализация ----------
+      searchInput.addEventListener('input', filterProducts);
+      filterProducts();
+      updateUserUI();
+      updateCartUI();
+      if (currentUser) renderOrders();
+    })();
+  </script>
+</body>
+</html>
