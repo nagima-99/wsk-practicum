@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронь столика | Кофейня "Zerno"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-wrap">
+            <a href="index.html" class="logo" style="text-decoration: none;">Zerno.</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="menu.html">Меню</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="booking.html" class="btn-nav-book" style="background-color: #b0652e;">Бронь стола</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container section-padding">
+            <h2>Забронировать столик</h2>
+            
+            <div class="booking-wrapper">
+                <div class="contact-form" style="max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <p style="text-align: center; margin-bottom: 20px; color: #555;">Заполните форму, и мы закрепим за вами лучший столик.</p>
+                    
+                    <form action="#" method="POST">
+                        <input type="text" placeholder="Ваше имя" required class="form-input">
+                        <input type="tel" placeholder="Номер телефона" required class="form-input">
+                        
+                        <div style="display: flex; gap: 15px;">
+                            <input type="date" required class="form-input" style="flex: 1;">
+                            <input type="time" required class="form-input" style="flex: 1;">
+                        </div>
+
+                        <input type="number" placeholder="Количество персон" min="1" max="10" required class="form-input">
+                        
+                        <textarea placeholder="Особые пожелания (у окна, диванчик и т.д.)..." rows="3" class="form-input"></textarea>
+                        
+                        <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Подтвердить бронь</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">© 2026 Кофейня "Zerno". Учебный проект.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
