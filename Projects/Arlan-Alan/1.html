@@ -1,0 +1,1136 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapy - Магазин спортивной одежды</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Обновляем логотип в шапке -->
+                <div class="logo">
+                    <img src="photo_5292269710588638744_y.png" alt="Therapy Logo" class="logo-img">
+                    <h1>therapy</h1>
+                </div>
+                <div class="nav-container">
+                    <nav>
+                        <ul class="nav-links">
+                            <li><a href="#home" class="active">Главная</a></li>
+                            <li><a href="#men">Мужчинам</a></li>
+                            <li><a href="#women">Женщинам</a></li>
+                            <li><a href="#accessories">Аксессуары</a></li>
+                            <li><a href="#sale">Скидки</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Поиск...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="user-actions">
+                        <button id="login-btn"><i class="fas fa-user"></i><span class="auth-status">Войти</span></button>
+                        <button id="cart-btn"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></button>
+                    </div>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#men">Мужчинам</a></li>
+            <li><a href="#women">Женщинам</a></li>
+            <li><a href="#accessories">Аксессуары</a></li>
+            <li><a href="#sale">Скидки</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>ПОВЫСЬ СВОЮ ПРОИЗВОДИТЕЛЬНОСТЬ</h2>
+                <p>Премиальная спортивная одежда для активного образа жизни</p>
+                <a href="#featured" class="btn pulse-btn">Купить сейчас</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Категории</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="men">
+                    <img src="https://img.alicdn.com/imgextra/i3/3968390948/TB2u5RbyH1YBuNjSszeXXablFXa_!!3968390948.jpg" alt="Мужская коллекция">
+                    <div class="category-info">
+                        <h3>Мужчинам</h3>
+                        <a href="#men" class="btn-small">Смотреть коллекцию</a>
+                    </div>
+                </div>
+                <div class="category-card" data-category="women">
+                    <img src="https://avatars.mds.yandex.net/i?id=ef1402cf788820f609517972627c9239_l-10878377-images-thumbs&n=13" alt="Женская коллекция">
+                    <div class="category-info">
+                        <h3>Женщинам</h3>
+                        <a href="#women" class="btn-small">Смотреть коллекцию</a>
+                    </div>
+                </div>
+                <div class="category-card" data-category="accessories">
+                    <img src="https://sun9-6.userapi.com/impg/cIM8LTAPkask3TEhUAKbggrxqKOqDv4BSVZ0JQ/fvqnB7bv1Qc.jpg?size=807x538&quality=96&sign=327a47293febacaed166db9bcd289ea7&c_uniq_tag=A_d6NmEIVTvXCdOwD9-K3SDqDdoq5W2II1IOXlIQ4BI&type=album" alt="Аксессуары">
+                    <div class="category-info">
+                        <h3>Аксессуары</h3>
+                        <a href="#accessories" class="btn-small">Смотреть коллекцию</a>
+                    </div>
+                </div>
+                <div class="category-card" data-category="sale">
+                    <img src="https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Скидки">
+                    <div class="category-info">
+                        <h3>Скидки</h3>
+                        <a href="#sale" class="btn-small">Смотреть товары</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products" id="featured">
+        <div class="container">
+            <h2 class="section-title">Популярные товары</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn1.ozone.ru/s3/multimedia-k/6736150136.jpg" alt="Спортивная футболка">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="1" data-name="Спортивная футболка" data-price="9600">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Спортивная футболка</h3>
+                        <p class="product-price">9600 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://static.onlinetrade.ru/img/items/b/2091428_2.jpg" alt="Беговые кроссовки">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="2" data-name="Беговые кроссовки" data-price="34000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Беговые кроссовки</h3>
+                        <p class="product-price">34 000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn1.ozone.ru/s3/multimedia-3/6011280999.jpg" alt="Йога-штаны">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="3" data-name="Йога-штаны" data-price="8000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Йога-штаны</h3>
+                        <p class="product-price">8000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://avatars.mds.yandex.net/i?id=7d530d729934954ec513c04c139b9492_l-10465630-images-thumbs&n=13" alt="Спортивный бюстгальтер">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="4" data-name="Спортивный бюстгальтер" data-price="5000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Спортивный бюстгальтер</h3>
+                        <p class="product-price">5000₸</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Men's Section -->
+    <section class="product-section" id="men">
+        <div class="container">
+            <h2 class="section-title">Мужская коллекция</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://static.cdek.shopping/images/shopping/0bbc34c5fa5d4dcd996f5fd10854ccb8.jpg" alt="Мужские тренировочные шорты">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="5" data-name="Мужские тренировочные шорты" data-price="12000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Мужские тренировочные шорты</h3>
+                        <p class="product-price">12000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://avatars.mds.yandex.net/i?id=094d247d7992a3dbe2ddaaa866b1aabe_l-9181873-images-thumbs&ref=rim&n=13&w=1000&h=1000" alt="Мужская компрессионная футболка">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="6" data-name="Мужская компрессионная футболка" data-price="7000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Мужская компрессионная футболка</h3>
+                        <p class="product-price">7000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://ir.ozone.ru/s3/multimedia-l/c1000/6020271405.jpg" alt="Мужская беговая куртка">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="7" data-name="Мужская беговая куртка" data-price="38250">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Мужская беговая куртка</h3>
+                        <p class="product-price">38 250 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Мужские тренировочные кроссовки">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="8" data-name="Мужские тренировочные кроссовки" data-price="49500">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Мужские тренировочные кроссовки</h3>
+                        <p class="product-price">49 500 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://spb.formand.ru/image/cache/data/protective-equipment/sportivnye-ochki-poc-aspire/sportivnye-ochki-poc-aspire-foto-1-1000x750.jpg"Мужские спортивные очки">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="17" data-name="Мужские спортивные очки" data-price="4000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Мужские спортивные очки</h3>
+                        <p class="product-price">4000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://ir.ozone.ru/s3/multimedia-j/c1000/6014583295.jpg" alt="Мужская толстовка с капюшоном">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="18" data-name="Мужская толстовка с капюшоном" data-price="31500">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Мужская толстовка с капюшоном</h3>
+                        <p class="product-price">31 500 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://s.f.kz/prod/1239/1238556_1000.jpg" alt="Мужская ветровка">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="19" data-name="Мужская ветровка" data-price="36000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Мужская ветровка</h3>
+                        <p class="product-price">36 000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://fightwear.ru/images/stories/virtuemart/product/jpg/pr_7083_1.png.jpg" alt="Мужская спортивная майка">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="33" data-name="Мужская спортивная майка" data-price="13500">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Мужская спортивная майка</h3>
+                        <p class="product-price">13 500 ₸</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Women's Section -->
+    <section class="product-section" id="women">
+        <div class="container">
+            <h2 class="section-title">Женская коллекция</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://www.denniskirk.com/dk/product_images/oe/1200pix/oep3445166_f91350044d04c53489bbc13335bc171f5ff27013.jpg" alt="Женские леггинсы">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="9" data-name="Женские леггинсы" data-price="7000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Женские леггинсы</h3>
+                        <p class="product-price">7 000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://a.lmcdn.ru/product/N/I/NI464EWJGB15_1_v2.jpg" alt="Женский спортивный топ">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="10" data-name="Женский спортивный топ" data-price="8000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Женский спортивный топ</h3>
+                        <p class="product-price">8 000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://n.cdn.cdek.shopping/images/shopping/gYjfiSf7QgiSDDCz.jpg?v=1" alt="Женские беговые шорты">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="11" data-name="Женские беговые шорты" data-price="9500">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Женские беговые шорты</h3>
+                        <p class="product-price">9500 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn1.ozone.ru/s3/multimedia-q/6013797278.jpg" alt="Женские фитнес-кроссовки">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="12" data-name="Женские фитнес-кроссовки" data-price="31750">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Женские фитнес-кроссовки</h3>
+                        <p class="product-price">31 750 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://avatars.mds.yandex.net/i?id=eac358edfbc4c250bbac26cd47dd5e70_l-5234804-images-thumbs&n=13" alt="Женская спортивная куртка">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="20" data-name="Женская спортивная куртка" data-price="42750">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Женская спортивная куртка</h3>
+                        <p class="product-price">42 750 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.ebayimg.com/images/g/sKgAAOSw1DhhMZEg/s-l1600.jpg" alt="Женская толстовка">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="21" data-name="Женская толстовка" data-price="19250">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Женская толстовка</h3>
+                        <p class="product-price">19 250 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/I/41tUwZ5KCmL._UL1000_.jpg" alt="Женская спортивная футболка">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="22" data-name="Женская спортивная футболка" data-price="12200">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Женская спортивная футболка</h3>
+                        <p class="product-price">12 200 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.sportisimo.com/products/images/1039/1039847/700x700/nike-bv4958-698-w-nsw-trk-suit-pk_1.jpg" alt="Женский спортивный костюм">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="34" data-name="Женский спортивный костюм" data-price="45000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Женский спортивный костюм</h3>
+                        <p class="product-price">45 000 ₸</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessories Section -->
+    <section class="product-section" id="accessories">
+        <div class="container">
+            <h2 class="section-title">Аксессуары</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://avatars.mds.yandex.net/i?id=6e9cabd5fe6a3595be44ac08e70c5065_l-4034271-images-thumbs&ref=rim&n=13&w=1000&h=1000" alt="Спортивная бутылка для воды">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="13" data-name="Спортивная бутылка для воды" data-price="11250">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Спортивная бутылка для воды</h3>
+                        <p class="product-price">11 250 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://avatars.mds.yandex.net/i?id=2f6f9e11e5515f91d62c4eb0ed2bc5f5_l-8230897-images-thumbs&n=13" alt="Фитнес-трекер">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="14" data-name="Фитнес-трекер" data-price="42750">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Фитнес-трекер</h3>
+                        <p class="product-price">42 750 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://avatars.mds.yandex.net/get-mpic/5323566/img_id9157510596494236389.jpeg/orig" alt="Спортивная сумка">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="15" data-name="Спортивная сумка" data-price="31500">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Спортивная сумка</h3>
+                        <p class="product-price">31 500 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn1.ozone.ru/s3/multimedia-q/6025540910.jpg" alt="Коврик для йоги">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="16" data-name="Коврик для йоги" data-price="8000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Коврик для йоги</h3>
+                        <p class="product-price">8 000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://main-cdn.sbermegamarket.ru/big1/hlr-system/1575282/100000008237b0.jpg" alt="Спортивные наушники">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="23" data-name="Спортивные наушники" data-price="36000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Спортивные наушники</h3>
+                        <p class="product-price">36 000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://avatars.mds.yandex.net/i?id=3d845561360885c623c44c03b2a9a289_l-5434185-images-thumbs&n=13" alt="Спортивные перчатки">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="24" data-name="Спортивные перчатки" data-price="13500">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Спортивные перчатки</h3>
+                        <p class="product-price">13 500 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://avatars.mds.yandex.net/i?id=c035622165cbd3de071a684eb42dd12c_l-5232827-images-thumbs&n=13" alt="Спортивный рюкзак">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="25" data-name="Спортивный рюкзак" data-price="27000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Спортивный рюкзак</h3>
+                        <p class="product-price">27 000 ₸</p>
+                    </div>
+                </div>
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://cdn1.ozone.ru/s3/multimedia-5/6013129781.jpg" alt="Спортивный шейкер">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="35" data-name="Спортивный шейкер" data-price="9000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Спортивный шейкер</h3>
+                        <p class="product-price">9 000 ₸</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sale Section -->
+    <section class="product-section sale-section" id="sale">
+        <div class="container">
+            <h2 class="section-title">Скидки</h2>
+            <div class="sale-banner">
+                <h3>Сезонная распродажа!</h3>
+                <p>Скидки до 50% на избранные товары. Предложение ограничено по времени.</p>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-days">03</span>
+                        <span class="countdown-label">Дней</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-hours">12</span>
+                        <span class="countdown-label">Часов</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-minutes">45</span>
+                        <span class="countdown-label">Минут</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-seconds">30</span>
+                        <span class="countdown-label">Секунд</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-grid">
+                
+                <!-- Sale Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="discount-badge">-35%</div>
+                        <img src="https://images.unsplash.com/photo-1593032580308-d4bafafc4f28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Мужская беговая куртка">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="30" data-name="Мужская беговая куртка (скидка)" data-price="24862" data-original-price="38250">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Мужская беговая куртка</h3>
+                        <p class="product-price"><span class="old-price">38 250 ₸</span> 24 862 ₸</p>
+                    </div>
+                </div>
+                <!-- Sale Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="discount-badge">-15%</div>
+                        <img src="https://images.unsplash.com/photo-1622270672604-ae6c0c3a4f18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Женский спортивный топ">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="31" data-name="Женский спортивный топ (скидка)" data-price="15300" data-original-price="18000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Женский спортивный топ</h3>
+                        <p class="product-price"><span class="old-price">18 000 ₸</span> 15 300 ₸</p>
+                    </div>
+                </div>
+                <!-- Sale Product 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="discount-badge">-50%</div>
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Спортивные наушники">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="32" data-name="Спортивные наушники (скидка)" data-price="18000" data-original-price="36000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Спортивные наушники</h3>
+                        <p class="product-price"><span class="old-price">36 000 ₸</span> 18 000 ₸</p>
+                    </div>
+                </div>
+                <!-- Sale Product 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="discount-badge">-45%</div>
+                        <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Женский спортивный костюм">
+                        <div class="product-overlay">
+                            <button class="add-to-cart" data-id="36" data-name="Женский спортивный костюм (скидка)" data-price="24750" data-original-price="45000">В корзину</button>
+                            <button class="quick-view">Быстрый просмотр</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Женский спортивный костюм</h3>
+                        <p class="product-price"><span class="old-price">45 000 ₸</span> 24 750 ₸</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <div class="container">
+            <h2 class="section-title">О нас</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="О нашем магазине">
+                </div>
+                <div class="about-text">
+                    <h3>Наша история</h3>
+                    <p>Therapy — это больше, чем просто магазин спортивной одежды. Мы создаем одежду, которая помогает людям достигать своих целей и чувствовать себя комфортно во время тренировок.</p>
+                    <p>Основанная в 2015 году группой энтузиастов фитнеса, наша компания стремится предоставлять высококачественную спортивную одежду, которая сочетает в себе стиль, комфорт и функциональность.</p>
+                    <h3>Наша миссия</h3>
+                    <p>Мы верим, что правильная экипировка — это ключ к успешным тренировкам. Наша миссия — помочь каждому человеку раскрыть свой потенциал через спорт и активный образ жизни.</p>
+                    <h3>Наши ценности</h3>
+                    <ul>
+                        <li>Качество и долговечность</li>
+                        <li>Инновации и технологичность</li>
+                        <li>Экологическая ответственность</li>
+                        <li>Доступность для всех</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Подпишитесь на нашу рассылку</h2>
+                <p>Получайте специальные предложения, бесплатные подарки и эксклюзивные скидки.</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Ваш email адрес" required>
+                    <button type="submit" class="btn">Подписаться</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Обновляем логотип в футере -->
+                <div class="footer-logo">
+                    <img src="photo_5292269710588638744_y.png" alt="Therapy Logo" class="footer-logo-img">
+                    <h2>THERAPY</h2>
+                    <p>Премиальная спортивная одежда для активного образа жизни</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Магазин</h3>
+                        <ul>
+                            <li><a href="#men">Мужчинам</a></li>
+                            <li><a href="#women">Женщинам</a></li>
+                            <li><a href="#accessories">Аксессуары</a></li>
+                            <li><a href="#sale">Скидки</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Помощь</h3>
+                        <ul>
+                            <li><a href="#" id="show-help-faq">Часто задаваемые вопросы</a></li>
+                            <li><a href="#" id="show-help-delivery">Доставка и оплата</a></li>
+                            <li><a href="#" id="show-help-returns">Возврат и обмен</a></li>
+                            <li><a href="#" id="show-help-sizes">Таблица размеров</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>О компании</h3>
+                        <ul>
+                            <li><a href="#about">Наша история</a></li>
+                            <li><a href="#" id="show-about-careers">Карьера</a></li>
+                            <li><a href="#" id="show-about-responsibility">Социальная ответственность</a></li>
+                            <li><a href="#" id="show-about-contact">Контакты</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Therapy. Все права защищены.</p>
+                <!-- Обновляем ссылку на Instagram в футере -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/thetherapyclothes?igsh=cWk2bGlnaDBkN3ds" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Вход в аккаунт</h2>
+            <div class="social-login">
+                <button class="social-btn facebook-btn"><i class="fab fa-facebook-f"></i> Facebook</button>
+                <button class="social-btn google-btn"><i class="fab fa-google"></i> Google</button>
+                <button class="social-btn apple-btn"><i class="fab fa-apple"></i> Apple</button>
+            </div>
+            <div class="divider">
+                <span>или</span>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <div class="password-input">
+                        <input type="password" id="password" required>
+                        <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <a href="#" class="forgot-password">Забыли пароль?</a>
+                </div>
+                <button type="submit" class="btn">Войти</button>
+            </form>
+            <p class="modal-footer">Нет аккаунта? <a href="#" id="show-register">Зарегистрироваться</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Создать аккаунт</h2>
+            <div class="social-login">
+                <button class="social-btn facebook-btn"><i class="fab fa-facebook-f"></i> Facebook</button>
+                <button class="social-btn google-btn"><i class="fab fa-google"></i> Google</button>
+                <button class="social-btn apple-btn"><i class="fab fa-apple"></i> Apple</button>
+            </div>
+            <div class="divider">
+                <span>или</span>
+            </div>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="reg-name">Полное имя</label>
+                    <input type="text" id="reg-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Пароль</label>
+                    <div class="password-input">
+                        <input type="password" id="reg-password" required>
+                        <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reg-confirm-password">Подтвердите пароль</label>
+                    <div class="password-input">
+                        <input type="password" id="reg-confirm-password" required>
+                        <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+                <div class="form-group terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">Я согласен с <a href="#">условиями использования</a> и <a href="#">политикой конфиденциальности</a></label>
+                </div>
+                <button type="submit" class="btn">Зарегистрироваться</button>
+            </form>
+            <p class="modal-footer">Уже есть аккаунт? <a href="#" id="show-login">Войти</a></p>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Ваша корзина</h2>
+            <div id="cart-items">
+                <!-- Cart items will be added here dynamically -->
+                <p class="empty-cart">Ваша корзина пуста</p>
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Итого:</span>
+                    <span id="cart-total">0 ₸</span>
+                </div>
+                <button class="btn" id="checkout-btn">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quick-view-modal">
+        <div class="modal-content product-modal">
+            <span class="close-modal">&times;</span>
+            <div class="product-quick-view">
+                <div class="product-quick-image">
+                    <img id="quick-view-image" src="/placeholder.svg" alt="Изображение товара">
+                </div>
+                <div class="product-quick-details">
+                    <h2 id="quick-view-title"></h2>
+                    <p class="product-price" id="quick-view-price"></p>
+                    <p class="product-description">Высококачественная спортивная одежда, разработанная для максимального комфорта и производительности. Наши изделия сочетают в себе современные технологии и стильный дизайн.</p>
+                    <div class="product-options">
+                        <div class="size-options">
+                            <h3>Размер</h3>
+                            <div class="size-selector">
+                                <button class="size-btn">S</button>
+                                <button class="size-btn">M</button>
+                                <button class="size-btn">L</button>
+                                <button class="size-btn">XL</button>
+                            </div>
+                        </div>
+                        <div class="quantity-selector">
+                            <h3>Количество</h3>
+                            <div class="quantity-controls">
+                                <button id="decrease-quantity">-</button>
+                                <input type="number" id="product-quantity" value="1" min="1">
+                                <button id="increase-quantity">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn" id="quick-add-to-cart">Добавить в корзину</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Required Modal -->
+    <div class="modal" id="auth-required-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Требуется авторизация</h2>
+            <p>Для добавления товаров в корзину необходимо войти в аккаунт или зарегистрироваться.</p>
+            <div class="auth-buttons">
+                <button class="btn" id="auth-login-btn">Войти</button>
+                <button class="btn btn-outline" id="auth-register-btn">Зарегистрироваться</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modals -->
+    <div class="modal" id="help-faq-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Часто задаваемые вопросы</h2>
+            <div class="faq-content">
+                <div class="faq-item">
+                    <h3>Как выбрать правильный размер?</h3>
+                    <p>Мы рекомендуем ознакомиться с нашей таблицей размеров перед покупкой. Вы можете найти ее в разделе "Помощь" > "Таблица размеров".</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Как долго осуществляется доставка?</h3>
+                    <p>Стандартная доставка занимает 3-5 рабочих дней. Экспресс-доставка доступна в крупных городах и занимает 1-2 рабочих дня.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Можно ли вернуть товар?</h3>
+                    <p>Да, вы можете вернуть товар в течение 14 дней с момента получения, если он не был в использовании и сохранил все бирки и упаковку.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Какие способы оплаты вы принимаете?</h3>
+                    <p>Мы принимаем оплату банковскими картами, через электронные кошельки и наличными при получении (для некоторых регионов).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="help-delivery-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Доставка и оплата</h2>
+            <div class="delivery-content">
+                <h3>Способы доставки</h3>
+                <ul>
+                    <li><strong>Стандартная доставка:</strong> 3-5 рабочих дней, 1500 ₸</li>
+                    <li><strong>Экспресс-доставка:</strong> 1-2 рабочих дня, 3000 ₸</li>
+                    <li><strong>Самовывоз из магазина:</strong> Бесплатно</li>
+                </ul>
+                <h3>Способы оплаты</h3>
+                <ul>
+                    <li>Банковские карты (Visa, MasterCard)</li>
+                    <li>Электронные кошельки</li>
+                    <li>Наличными при получении</li>
+                    <li>Банковский перевод (для юридических лиц)</li>
+                </ul>
+                <p>При заказе на сумму свыше 50 000 ₸ доставка осуществляется бесплатно.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="help-returns-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Возврат и обмен</h2>
+            <div class="returns-content">
+                <h3>Условия возврата</h3>
+                <p>Вы можете вернуть товар в течение 14 дней с момента получения при соблюдении следующих условий:</p>
+                <ul>
+                    <li>Товар не был в использовании</li>
+                    <li>Сохранены все бирки и упаковка</li>
+                    <li>Имеется документ, подтверждающий покупку</li>
+                </ul>
+                <h3>Процесс возврата</h3>
+                <ol>
+                    <li>Заполните форму возврата на сайте или в магазине</li>
+                    <li>Упакуйте товар в оригинальную упаковку</li>
+                    <li>Отправьте товар через курьерскую службу или принесите в магазин</li>
+                    <li>После проверки товара деньги будут возвращены в течение 10 рабочих дней</li>
+                </ol>
+                <h3>Обмен товара</h3>
+                <p>Вы можете обменять товар на аналогичный другого размера или цвета при наличии на складе. Для этого следуйте процедуре возврата и укажите, что хотите обменять товар.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="help-sizes-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Таблица размеров</h2>
+            <div class="sizes-content">
+                <h3>Мужская одежда</h3>
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>Размер</th>
+                            <th>Грудь (см)</th>
+                            <th>Талия (см)</th>
+                            <th>Бедра (см)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>S</td>
+                            <td>88-96</td>
+                            <td>73-81</td>
+                            <td>88-96</td>
+                        </tr>
+                        <tr>
+                            <td>M</td>
+                            <td>96-104</td>
+                            <td>81-89</td>
+                            <td>96-104</td>
+                        </tr>
+                        <tr>
+                            <td>L</td>
+                            <td>104-112</td>
+                            <td>89-97</td>
+                            <td>104-112</td>
+                        </tr>
+                        <tr>
+                            <td>XL</td>
+                            <td>112-120</td>
+                            <td>97-105</td>
+                            <td>112-120</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Женская одежда</h3>
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>Размер</th>
+                            <th>Грудь (см)</th>
+                            <th>Талия (см)</th>
+                            <th>Бедра (см)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>S</td>
+                            <td>82-90</td>
+                            <td>65-73</td>
+                            <td>90-98</td>
+                        </tr>
+                        <tr>
+                            <td>M</td>
+                            <td>90-98</td>
+                            <td>73-81</td>
+                            <td>98-106</td>
+                        </tr>
+                        <tr>
+                            <td>L</td>
+                            <td>98-106</td>
+                            <td>81-89</td>
+                            <td>106-114</td>
+                        </tr>
+                        <tr>
+                            <td>XL</td>
+                            <td>106-114</td>
+                            <td>89-97</td>
+                            <td>114-122</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Для получения наиболее точных измерений рекомендуем использовать мягкую измерительную ленту.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modals -->
+    <div class="modal" id="about-careers-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Карьера в Therapy</h2>
+            <div class="careers-content">
+                <p>Мы всегда ищем талантливых и энергичных людей, которые разделяют нашу страсть к спорту и здоровому образу жизни.</p>
+                <h3>Почему стоит работать с нами</h3>
+                <ul>
+                    <li>Дружный и профессиональный коллектив</li>
+                    <li>Возможности для карьерного роста</li>
+                    <li>Конкурентная заработная плата и бонусы</li>
+                    <li>Скидки на продукцию компании</li>
+                    <li>Гибкий график работы</li>
+                </ul>
+                <h3>Открытые вакансии</h3>
+                <div class="job-listings">
+                    <div class="job-item">
+                        <h4>Менеджер по продажам</h4>
+                        <p>Полная занятость, опыт работы от 1 года</p>
+                    </div>
+                    <div class="job-item">
+                        <h4>Специалист по маркетингу</h4>
+                        <p>Полная занятость, опыт работы от 2 лет</p>
+                    </div>
+                    <div class="job-item">
+                        <h4>Консультант в магазин</h4>
+                        <p>Полная/частичная занятость</p>
+                    </div>
+                </div>
+                <p>Для получения дополнительной информации и отправки резюме пишите на <a href="mailto:careers@therapy.kz">careers@therapy.kz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="about-responsibility-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Социальная ответственность</h2>
+            <div class="responsibility-content">
+                <p>В Therapy мы верим, что бизнес должен быть не только прибыльным, но и ответственным. Мы стремимся оказывать положительное влияние на общество и окружающую среду.</p>
+                <h3>Экологические инициативы</h3>
+                <ul>
+                    <li>Использование экологически чистых материалов</li>
+                    <li>Сокращение отходов производства</li>
+                    <li>Энергоэффективные магазины и офисы</li>
+                    <li>Программа переработки старой одежды</li>
+                </ul>
+                <h3>Социальные проекты</h3>
+                <ul>
+                    <li>Поддержка детского спорта</li>
+                    <li>Благотворительные забеги и марафоны</li>
+                    <li>Сотрудничество с местными спортивными организациями</li>
+                    <li>Образовательные программы о здоровом образе жизни</li>
+                </ul>
+                <p>Мы гордимся тем, что 5% от нашей прибыли направляется на поддержку социальных и экологических проектов.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="about-contact-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Контакты</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Центральный офис</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Аcтана, ул. Достык, 52</p>
+                    <p><i class="fas fa-phone"></i> +7 (727) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@therapy.kz</p>
+                </div>
+                <div class="contact-info">
+                    <h3>Магазины</h3>
+                    <p><strong>ТРЦ "Мега":</strong> г. Алматы, ул. Розыбакиева, 247</p>
+                    <p><strong>ТРЦ "Достык Плаза":</strong> г. Алматы, пр. Достык, 109</p>
+                    <p><strong>ТРЦ "Хан Шатыр":</strong> г. Астана, пр. Туран, 37</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Напишите нам</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Имя</label>
+                            <input type="text" id="contact-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Сообщение</label>
+                            <textarea id="contact-message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+</html>
